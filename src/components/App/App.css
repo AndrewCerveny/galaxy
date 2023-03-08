@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 4px solid black;
+  height: 95%;
+  width: 95%;
+  overflow-y: auto;
+  background-color: lightgray;
+  background-image: url("../../images/prettystars.jpg");
+  background-size: contain;
+}
+

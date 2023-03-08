@@ -1,0 +1,20 @@
+.planetCard {
+  width: 70%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4%;
+  box-shadow: 26px 10px 16px 2px;
+  background-color: black;
+  color: white;
+}
+
+.photo {
+  width: 60%;
+}
+
+.reference-tag {
+  color: yellow;
+}
