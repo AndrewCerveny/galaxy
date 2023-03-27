@@ -21,9 +21,8 @@ const Card = ({wholePlanet, grabId, passUrl}) => {
 
   return(
     <section className="planetCard">
-     <h2> {upperCaseName}:<span> planet {planetOrder} From The Sun! </span> </h2>
+     <h2> {upperCaseName}:<span> Planet {planetOrder} From The Sun! </span> </h2>
       <img className="photo" src={img} alt={altDescription} /> 
-     <h3> Weight</h3>
      <h4> Mass:{mass}</h4>
      <h4> Volume:{volume}</h4>
      <p> {description} </p>

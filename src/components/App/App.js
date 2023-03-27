@@ -4,7 +4,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Display from '../Display/Display';
 import Form from '../Form/Form';
-import { Route ,Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import apiDataCall from '../../api/apicalls';
 
 
@@ -14,13 +14,15 @@ class App extends Component {
     this.state = {
       planets: [],
       selectedPlanet:[],
+      error:'',
+      loaded: false 
     }
 
   }
   componentDidMount() {
     apiDataCall()
-      .then((data) => this.setState({planets:data}))
-      .catch((err) => err.message)   
+      .then((data) => this.setState({planets:data, loaded:true}))
+      .catch((err) => this.setState({error:err.message}))   
   }
 
   seeAllPlanets = () => {
@@ -48,13 +50,14 @@ class App extends Component {
  
   render() {
     const planetDetail = this.state.selectedPlanet.length && this.state.planets.length ? this.state.selectedPlanet : this.state.planets 
-   
+    {!this.state.loaded && !this.state.error && <h2>Loading ...</h2>}
+    
     return(
       <main className='App'>
         <Header />
         <Form allPlanets={this.seeAllPlanets} arrange={this.arrangePlanets} handleSubmit={this.handleSubmit}/>
         <Route exact path='/'>
-         <Display planets={planetDetail} grabId={this.grabId} passUrl={this.passUrl} />
+         <Display planets={planetDetail} grabId={this.grabId} passUrl={this.passUrl} error={this.state.error} />
         </Route>
       </main>
     )
